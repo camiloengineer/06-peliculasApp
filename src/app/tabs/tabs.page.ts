@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from "./../services/auth.service";
+import { ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +9,31 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  constructor(
+    public authservice : AuthService, 
+    public actionSheetController: ActionSheetController
+  ) {}
+
+  Onlogout(
+  ){
+    this.authservice.logout();
+  }
+
+  async presentActionSheet() {
+    const actionSheet = await this.actionSheetController.create({
+      header: '¿Realmente desea cerrar sesión?',
+      buttons: [{
+        text: 'Cerrar Sesión',
+        role: 'destructive',
+        icon: 'log-out',
+        handler: () => {
+          
+          this.Onlogout()
+
+        },
+      }]
+    });
+    await actionSheet.present();
+  }
 
 }

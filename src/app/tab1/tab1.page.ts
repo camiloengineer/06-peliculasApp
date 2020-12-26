@@ -11,23 +11,30 @@ export class Tab1Page implements OnInit  {
 
   peliculasRecientes: Pelicula[] = [];
   populares: Pelicula[] = [];
+  buscando = true;
 
   constructor( private moviesService: MoviesService ) {}
 
-  ngOnInit(){
+  async ngOnInit(){
+    await this.getData();
+  }
+
+  async getData(){
+    this.buscando = true;
     this.moviesService.getFeature()
     .subscribe( resp => {
       this.peliculasRecientes = resp.results;
     });
 
-    this.getPopulares()
+    await this.getPopulares();
+    this.buscando = false;
   }
 
-  cargarMas(){
-    this.getPopulares()
+  async cargarMas(){
+    await this.getPopulares()
   }
 
-  getPopulares(){
+  async getPopulares(){
     this.moviesService.getPopulares()
     .subscribe( resp => {
 

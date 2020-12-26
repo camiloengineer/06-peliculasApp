@@ -9,6 +9,16 @@ export const environment = {
   imgPath: 'https://image.tmdb.org/t/p'
 };
 
+export const firebaseConfig = {
+  apiKey: "AIzaSyD-YrEt87mO3xlgH-2Z_9GPm_8jP3h6eoU",
+  authDomain: "peliculasapp-1413c.firebaseapp.com",
+  projectId: "peliculasapp-1413c",
+  storageBucket: "peliculasapp-1413c.appspot.com",
+  messagingSenderId: "417757475409",
+  appId: "1:417757475409:web:58c956b651c357014a7e70",
+  measurementId: "G-M940PEYMMC"
+};
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

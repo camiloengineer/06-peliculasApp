@@ -17,6 +17,7 @@ export class Tab3Page implements OnInit {
   peliculas: PeliculaDetalle[] = [];
   generos: Genre[] = [];
   public showComponent: boolean = false;
+  buscando = true;
 
   favoritoGenero: any[] = [];
 
@@ -30,9 +31,11 @@ export class Tab3Page implements OnInit {
   }
 
   public async cargarFavoritos(){
+    this.buscando = true;
     this.peliculas = await this.dataService.cargarFavoritos();
     this.generos = await this.moviesService.cargarGeneros();
     this.pelisPorGeneros( this.generos, this.peliculas );
+    this.buscando = false;
   }
 
   pelisPorGeneros( generos: Genre[], peliculas: PeliculaDetalle[] ){

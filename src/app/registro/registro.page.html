@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title class="ion-text-center">Crear Cuenta</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <img class="icono" src="assets/icon/register.png" alt="">
+
+    <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="nombre" name="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">E-Mail</ion-label>
+        <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Fecha de Nacimiento</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="fechaNacimiento"></ion-datetime>
+    </ion-item>
+
+    <ion-list>
+        <ion-radio-group [(ngModel)]="sexo">
+            <ion-list-header>
+                <ion-label>
+                    Sexo
+                </ion-label>
+            </ion-list-header>
+            <ion-row radio-group>
+                <ion-col>
+                    <ion-item>
+                        <ion-label>Hombre</ion-label>
+                        <ion-radio mode="md" value="hombre"></ion-radio>
+                    </ion-item>
+                </ion-col>
+
+                <ion-col>
+                    <ion-item>
+                        <ion-label>Mujer</ion-label>
+                        <ion-radio mode="md" value="mujer"></ion-radio>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-radio-group>
+    </ion-list>
+
+    <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+    </ion-item>
+    <br>
+    <ion-button class="boton" expand="block" (click)="OnSubmitRegister()">Registrarse</ion-button>
+    <br>
+    <p class="centrar" routerLink="/login">Ya tengo cuenta</p>
+
+
+</ion-content>
