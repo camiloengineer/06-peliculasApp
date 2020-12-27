@@ -15,6 +15,7 @@ import { IonicStorageModule } from '@ionic/storage'
 import { firebaseConfig } from "../environments/environment";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +27,8 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
     IonicStorageModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    GraphQLModule
   ],
   providers: [
     StatusBar,
