@@ -31,9 +31,9 @@ export class RegistroPage implements OnInit {
   OnSubmitRegister(){
     this.auth.register(this.email, this.password,this.nombre, this.fechaNacimiento, this.sexo).then( auth => {
 
-      this.crearUsuarioGQL(this.email, this.nombre, this.fechaNacimiento, this.sexo)
+      //this.crearUsuarioGQL(this.email, this.nombre, this.fechaNacimiento, this.sexo)
       this.router.navigate(['login'])
-      
+
     }).catch(err => console.log(err))
   }
 
