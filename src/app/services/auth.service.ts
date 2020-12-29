@@ -44,14 +44,13 @@ export class AuthService {
 
     return new Promise ((resolve, reject) => {
       this.AFauth.createUserWithEmailAndPassword(email, password).then( res =>{
-        // const id = res.user.uid;
-        //   this.db.collection('user').doc(id).set({
-        //     id : id,
-        //     nombre : nombre,
-        //     fechaNacimiento : fechaNacimiento,
-        //     sexo : sexo
-        //   })
-        console.log(email, password, nombre, fechaNacimiento, sexo);
+        const id = res.user.uid;
+          this.db.collection('usuarios').doc(id).set({
+            id : id,
+            nombre : nombre,
+            fechaNacimiento : fechaNacimiento,
+            sexo : sexo
+          })
         
          resolve(res)
       }).catch( 
